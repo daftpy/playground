@@ -51,9 +51,11 @@
   .wrapper {
     flex-direction: row;
   }
+  .blog {
+    padding: 0 5em;
+  }
 }
 
 .blog {
   flex-grow: 1;
-  padding: 0 5em;
 }
