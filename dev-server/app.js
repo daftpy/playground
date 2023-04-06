@@ -50,7 +50,7 @@ async function loadAndCachePosts() {
   }
 }
 
-App.get('/api/blog_posts', (req, res) => {
+App.get('/blog_posts', (req, res) => {
   res.json(postsCache);
 });
 
