@@ -2,7 +2,11 @@ import React from 'react';
 
 export default function BlogPost({ postData }) {
   const imgStyle = {
-    borderRadius: '6%'
+    borderRadius: '6%',
+    margin: '0 auto',
+    width: '100%',
+    maxWidth: '350px',
+    height: 'auto'
   }
   
   return (

@@ -47,7 +47,7 @@
   flex-direction: column;
 }
 
-@media (min-width: 768px) { 
+@media (min-width: 992px) { 
   .wrapper {
     flex-direction: row;
   }

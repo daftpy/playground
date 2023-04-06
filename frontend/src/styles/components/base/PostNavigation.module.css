@@ -3,11 +3,11 @@
     width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .navWrapper {
         margin-top: default;
         width: 300px;
-        min-width: 300px;
+        min-width: 200px;
     }
 }
 
