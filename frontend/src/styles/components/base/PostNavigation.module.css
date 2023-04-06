@@ -1,0 +1,39 @@
+.navWrapper {
+    margin-top: 3.5em;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .navWrapper {
+        margin-top: default;
+        width: 300px;
+        min-width: 300px;
+    }
+}
+
+.navigation {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navigation > a > li {
+    background: #272727;
+    padding: .75em;
+    margin: .75rem 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.navigation > a > li:hover {
+    background: #2f2e2e;
+}
+
+@media (prefers-color-scheme: light) {
+    .navigation > a > li {
+        background: #f9f9f9;
+    }
+
+    .navigation > a > li:hover {
+        background: #eeeeee;
+    }
+  }
