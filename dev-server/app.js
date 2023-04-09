@@ -20,14 +20,13 @@ const __dirname = path.dirname(__filename);
 App.use(cors());
 App.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-// Env settings
-const env = process.argv[2] === 'production' ? 'production' : 'development';
+
+const env = process.env.NODE_ENV || 'development';
 dotenv.config({ path: path.resolve(__dirname, `.env.${env}`)});
 
-// Load .local file if it exists
-const localEnvPath = path.resolve(__dirname, `.env.${env}.local`);
-if (fs.existsSync(localEnvPath)) {
-  dotenv.config({ path: localEnvPath });
+// Load local .env file if it exists
+if (fs.existsSync(path.resolve(__dirname, `.env.${env}.local`))) {
+  dotenv.config({ path: path.resolve(__dirname, `.env.${env}.local`) });
 }
 
 // In-memory cache
