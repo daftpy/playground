@@ -6,19 +6,11 @@ import PostNavigation from './components/base/PostNavigation';
 function App() {
   const [postView, setPostView] = useState(null);
   const [posts, setPosts] = useState([]);
-  
-  var fetchUrl;
-  if (import.meta.env.MODE == 'production') {
-    fetchUrl = 'http://example.com/api/blog_posts';
-  } else {
-    console.log(import.meta.env.VITE_APP_API_URL);
-    fetchUrl = import.meta.env.VITE_APP_API_URL;
-  }
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(fetchUrl);
+        const response = await fetch(import.meta.env.VITE_APP_API_URL);
         const data = await response.json();
         setPosts(data);
         setPostView(data[0]);
