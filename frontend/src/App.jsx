@@ -2,10 +2,21 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import BlogPost from './components/base/BlogPost'
 import PostNavigation from './components/base/PostNavigation';
+import {
+  createBrowserRouter,
+  RouterProvider
+} from 'react-router-dom';
 
 function App() {
   const [postView, setPostView] = useState(null);
   const [posts, setPosts] = useState([]);
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <BlogPost postData={postView} />
+    }
+  ])
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -22,7 +33,8 @@ function App() {
   }, []);
 
   function changePost(postId) {
-    setPostView(posts.find((post) => post.id == postId));
+    let post = posts.find((post) => post.id == postId);
+    setPostView(post);
   }
 
   return (
@@ -30,9 +42,15 @@ function App() {
       <div className="wrapper">
         <section className="blog">
           <h1 style={{marginTop: 0}}>Daftpy</h1>
-          { postView ? (<BlogPost postData={postView} />) : <p>Loading blog posts</p>}
+          <RouterProvider router={router} />
         </section>
-        <PostNavigation posts={posts} changePost={changePost} />
+        {
+          postView ? (
+            <PostNavigation posts={posts} changePost={changePost} activePostId={postView.id} />
+          ) : (
+            <></>
+          )
+        }
       </div>
     </div>
   )

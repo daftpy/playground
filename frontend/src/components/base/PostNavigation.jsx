@@ -1,9 +1,17 @@
 import Styles from '../../styles/components/base/PostNavigation.module.css'
 
-export default function PostNavigation({ posts, changePost }) {
+export default function PostNavigation({ posts, changePost, activePostId }) {
 
   const postLinks = posts.map(post => (
-    <a key={post.id} onClick={() => changePost(post.id)}><li>{post.title}</li></a>
+    <li
+      key={post.id}
+      onClick={() => changePost(post.id)}
+      className={`${Styles.link} ${activePostId === post.id ? Styles['link-active'] : ''}`}
+    >
+      <a style={{
+        color: 'white',
+      }}>{post.title}</a>
+    </li>
   ))
 
   return (

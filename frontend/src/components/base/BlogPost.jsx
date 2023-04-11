@@ -11,9 +11,17 @@ export default function BlogPost({ postData }) {
   
   return (
     <section style={{paddingLeft: '5rem', paddingRight: '5rem'}}>
-      <img key={postData.id} style={imgStyle} src={postData.image} />
-      <h2>{postData.title}</h2>
-      <div dangerouslySetInnerHTML={{__html: postData.content}} />
+      {postData ? (
+        <>
+          <img key={postData.id} style={imgStyle} src={postData.image} />
+          <h2>{postData.title}</h2>
+          <div dangerouslySetInnerHTML={{__html: postData.content}} />
+        </>
+      ) : (
+        <>
+          <p>Loading blog posts...</p>
+        </>
+      )}
     </section>
   )
 }
