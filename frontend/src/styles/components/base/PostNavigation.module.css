@@ -1,53 +1,56 @@
 .navWrapper {
-    width: 100%;
+  width: 100%;
 }
 
 .navigation {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .linkWrapper {
-    display: block;
-    margin: .75rem 0;
-    border-radius: 3px;
-    cursor: pointer;
-    background: #2f2e2e;
+  display: block;
+  margin: 0.75rem 0;
+  border-radius: 3px;
+  cursor: pointer;
+  background: #2f2e2e;
 }
 
 .linkWrapper:hover {
-    background: #3d3b3b;
+  background: #3d3b3b;
 }
 
-.link, .link:hover {
-    display: inline-block;
-    padding: .75em;
-    color: white;
-    width: 100%;
+.link,
+.link:hover {
+  display: inline-block;
+  padding: 0.75em;
+  color: white;
+  width: 100%;
 }
-  
-.link-active, .link-active:hover {
-    background: #037bfc;
+
+.link-active,
+.link-active:hover {
+  background: #037bfc;
 }
 
 @media (min-width: 992px) {
-    .navWrapper {
-        margin-top: default;
-        width: 280px;
-        min-width: 280px;
-    }
+  .navWrapper {
+    margin-top: default;
+    width: 280px;
+    min-width: 280px;
+  }
 }
 
 @media (prefers-color-scheme: light) {
-    .linkWrapper {
-        background: #8ca2b9;
-    }
-    
-    .linkWrapper:hover {
-        background: #a0b5cc;
-    }
-      
-    .link-active, .link-active:hover {
-        background: #037bfc;
-    }
+  .linkWrapper {
+    background: #8ca2b9;
   }
+
+  .linkWrapper:hover {
+    background: #a0b5cc;
+  }
+
+  .link-active,
+  .link-active:hover {
+    background: #037bfc;
+  }
+}

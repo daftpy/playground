@@ -1,18 +1,17 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .wrapper {
+    flex-direction: row;
   }
-  
-  @media (min-width: 992px) { 
-    .wrapper {
-      flex-direction: row;
-    }
-    .blogPost {
-      padding: 0 5em;
-    }
-  }
-  
   .blogPost {
-    flex-grow: 1;
+    padding: 0 5em;
   }
-  
+}
+
+.blogPost {
+  flex-grow: 1;
+}

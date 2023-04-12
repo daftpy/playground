@@ -1,8 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from "react";
 import PostNavigation from "../components/base/PostNavigation";
-import BlogContext from './../contexts/BlogContext';
-import Styles from './../styles/routes/Root.module.css';
+import BlogContext from "./../contexts/BlogContext";
+import Styles from "./../styles/routes/Root.module.css";
 
 export default function Root() {
   const [posts, setPosts] = useState([]);
@@ -22,21 +22,25 @@ export default function Root() {
         setPostId(data[0].id);
         setLatestPostId(data[0].id);
       } catch (error) {
-        console.error('Error fetching blog posts:', error);
+        console.error("Error fetching blog posts:", error);
       }
     })();
   }, []);
 
   return (
-		<>
+    <>
       <div className={Styles.wrapper}>
         <div className={Styles.blogPost}>
           {/*
             Branding link takes you back to the index "/" and sets
             the BlogContext postId to the latest post id.
           */}
-          <h1 style={{marginTop: 0}}>
-            <Link style={{color: 'white', fontWeight: 700}} to="/" onClick={() => setPostId(latestPostId)}>
+          <h1 style={{ marginTop: 0 }}>
+            <Link
+              style={{ color: "white", fontWeight: 700 }}
+              to="/"
+              onClick={() => setPostId(latestPostId)}
+            >
               Daftpy
             </Link>
           </h1>
@@ -47,18 +51,14 @@ export default function Root() {
           */}
           <Outlet />
         </div>
-        
+
         {/*
           Post navigation will load when posts are received from the api
           server. The 'active' post informs the component on which link
           to highlight.      
         */}
-        {
-          posts && (
-            <PostNavigation posts={posts} activePostId={contextPostId} />
-          )
-        }
+        {posts && <PostNavigation posts={posts} activePostId={contextPostId} />}
       </div>
-		</>
-	)
+    </>
+  );
 }

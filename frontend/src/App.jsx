@@ -1,14 +1,10 @@
-import './App.css'
-import {
-  createBrowserRouter,
-  RouterProvider
-} from 'react-router-dom';
-import Root from './routes/Root';
-import BlogView from './routes/BlogView';
-import { BlogProvider } from './contexts/BlogContext';
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./routes/Root";
+import BlogView from "./routes/BlogView";
+import { BlogProvider } from "./contexts/BlogContext";
 
 function App() {
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -16,9 +12,9 @@ function App() {
       children: [
         {
           index: true,
-          element: <BlogView />
-        }
-      ]
+          element: <BlogView />,
+        },
+      ],
     },
     {
       path: "posts/:postId",
@@ -26,11 +22,11 @@ function App() {
       children: [
         {
           index: true,
-          element: <BlogView />
-        }
-      ]
-    }
-  ])
+          element: <BlogView />,
+        },
+      ],
+    },
+  ]);
 
   return (
     <div className="App">
@@ -42,7 +38,7 @@ function App() {
         </section>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
