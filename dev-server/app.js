@@ -64,6 +64,17 @@ App.get(process.env.API_URL, (req, res) => {
   res.json(postsCache);
 });
 
+App.get(`${process.env.API_URL}/:postId`, (req, res) => {
+  const postId = parseInt(req.params.postId, 10);
+  const post = postsCache.find((post) => post.id === postId);
+
+  if (post) {
+    res.json(post);
+  } else {
+    res.status(404).json({ message: 'Post not found' });
+  }
+});
+
 const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : undefined;
 
 App.listen(PORT, host, () => {

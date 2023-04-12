@@ -1,5 +1,4 @@
 .navWrapper {
-    margin-top: 3.5em;
     width: 100%;
 }
 
@@ -8,17 +7,23 @@
     padding: 0;
 }
 
-.link {
+.linkWrapper {
     display: block;
-    padding: .75em;
     margin: .75rem 0;
     border-radius: 3px;
     cursor: pointer;
     background: #2f2e2e;
 }
 
-.link:hover {
+.linkWrapper:hover {
     background: #3d3b3b;
+}
+
+.link, .link:hover {
+    display: inline-block;
+    padding: .75em;
+    color: white;
+    width: 100%;
 }
   
 .link-active, .link-active:hover {
@@ -28,17 +33,17 @@
 @media (min-width: 992px) {
     .navWrapper {
         margin-top: default;
-        width: 300px;
-        min-width: 200px;
+        width: 280px;
+        min-width: 280px;
     }
 }
 
 @media (prefers-color-scheme: light) {
-    .link {
+    .linkWrapper {
         background: #8ca2b9;
     }
     
-    .link:hover {
+    .linkWrapper:hover {
         background: #a0b5cc;
     }
       
